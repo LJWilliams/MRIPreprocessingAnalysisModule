@@ -45,35 +45,56 @@ If you want to transfer a large directory, it may be wise to first zip the folde
 `zip -r folder_name.zip folder_name`
 
 Then you can send folder_name.zip using rsync in the terminal. For example, the command before will send folder_name.zip to the project space in Sockeye:
-rsync -a folder_name.zip <cwl>@dtn.sockeye.arc.ubc.ca:/arc/project/st-weberam2-1/
+
+`rsync -a folder_name.zip <cwl>@dtn.sockeye.arc.ubc.ca:/arc/project/st-weberam2-1/`
+
 To test the transfer first, use -an instead of -a option
-Storage Workflow
+
+## Storage Workflow
+
 A recommend storage I/O workflow pattern on Sockeye could be summarized as:
 
-Copy/transfer input data to /arc/project/<alloc-code>
-Login to sockeye and create/modify job script(s) in /scratch/<alloc-code>
-Submit jobs that read input data from /arc/project/<alloc-code> and writes output to /scratch/<alloc-code> (or $TMDIR)
-Job completes successfully
-Copy/transfer job output from /scratch/<alloc-code> to /arc/projects/<alloc-code>
-Interactively post-process and/or analyze results in /arc/project/<alloc-code>
-Commonly Used Modules:
-FSL
+* Copy/transfer input data to /arc/project/<alloc-code>
+* Login to sockeye and create/modify job script(s) in /scratch/<alloc-code>
+* Submit jobs that read input data from /arc/project/<alloc-code> and writes output to /scratch/<alloc-code> (or $TMDIR)
+* Job completes successfully
+* Copy/transfer job output from /scratch/<alloc-code> to /arc/projects/<alloc-code>
+* Interactively post-process and/or analyze results in /arc/project/<alloc-code>
+
+## Commonly Used Modules:
+  
+### FSL
+  
+```  
 module load CVMFS_test
 module load gcc/9.3.0
 module load cuda/11.0
 module load fsl
-ANTs
+```
+  
+### ANTs
+
+```
 module load CVMFS_test
 module load gcc/9.3.0
 module load ants
-AFNI
+```
+  
+### AFNI
+  
+```
 module load CVMFS_test
 module load gcc/9.3.0
 module load afni
-fmriprep
+```
+  
+### fmriprep
+
 Install:
 
+```
 cd /arc/project/st-weberam2-1/
 module load singularity
 mkdir fmriprep
 singularity build fmriprep/fmriprep-21.0.1.simg docker://poldracklab/fmriprep:21.0.1
+```
