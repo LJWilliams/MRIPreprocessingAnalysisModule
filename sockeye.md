@@ -90,6 +90,8 @@ module load afni
   
 ### fmriprep
 
+https://fmriprep.org/en/1.5.1/singularity.html
+
 Install (if it isn't already):
 
 ```
