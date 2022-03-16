@@ -90,11 +90,17 @@ module load afni
   
 ### fmriprep
 
-Install:
+Install (if it isn't already):
 
 ```
 cd /arc/project/st-weberam2-1/
 module load singularity
 mkdir fmriprep
 singularity build fmriprep/fmriprep-21.0.1.simg docker://poldracklab/fmriprep:21.0.1
+```
+  
+Run:
+  
+```
+singularity run --cleanenv fmriprep.simg path/to/data/dir path/to/output/dir participant --participant-label label
 ```
