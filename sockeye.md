@@ -10,14 +10,14 @@ Here's the documentation: https://confluence.it.ubc.ca/display/UARC/About+Sockey
 
 ## System Specifications
 
-15,872 CPU cores
-101 TB system memory
-200 general purpose GPUs
-EDR (100Gbps) Infiniband
-1.3 PB Dell EMC Isilon w/ 192TB all-flash burst buffer
-1.5 PB DDN Lustre
-452 TB Local HDD
-11.4 TB Local NVMe SSD
+15,872 CPU cores <br>
+101 TB system memory <br>
+200 general purpose GPUs <br>
+EDR (100Gbps) Infiniband <br>
+1.3 PB Dell EMC Isilon w/ 192TB all-flash burst buffer <br>
+1.5 PB DDN Lustre <br>
+452 TB Local HDD <br>
+11.4 TB Local NVMe SSD <br>
 
 ## Quickstart Guide
 
