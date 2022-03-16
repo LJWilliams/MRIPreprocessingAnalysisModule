@@ -1,12 +1,15 @@
 # Notes for Sockeye
 
+## Intro
+
 https://arc.ubc.ca/ubc-arc-sockeye
 
 UBC ARC Sockeye is a heterogeneous High-Performance computational cluster, suitable for a variety of workloads. It is named after the Sockeye salmon (Oncorhyncus nerka), native to the Northern Pacific Ocean and the rivers discharging into it.
 
 Here's the documentation: https://confluence.it.ubc.ca/display/UARC/About+Sockeye
 
-System Specifications
+## System Specifications
+
 15,872 CPU cores
 101 TB system memory
 200 general purpose GPUs
@@ -16,21 +19,31 @@ EDR (100Gbps) Infiniband
 452 TB Local HDD
 11.4 TB Local NVMe SSD
 
-Quickstart Guide
+## Quickstart Guide
+
 https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide
+
+## Login
 
 You will need a CWL login, and access to the VPN for UBC
 
-Connect to VPN
-SSH into Sockeye using your CWL username
-ssh <cwl>@sockeye.arc.ubc.ca
-Once you've entered your password and gone through the security check (Duo Push or SMS passcode), you can cd to your project space
-For now, I believe ours is
-cd /arc/project/st-weberam2-1/
-Transfer Files to Sockeye
-*If you want to transfer a large directory, it may be wise to first zip the folder:
+* Connect to VPN
+* SSH into Sockeye using your CWL username
 
-zip -r folder_name.zip folder_name
+```ssh <cwl>@sockeye.arc.ubc.ca```
+
+Once you've entered your password and gone through the security check (Duo Push or SMS passcode), you can cd to your project space.
+
+For now, I believe ours is:
+
+`cd /arc/project/st-weberam2-1/`
+
+## Transfer Files to Sockeye
+
+If you want to transfer a large directory, it may be wise to first zip the folder:
+
+`zip -r folder_name.zip folder_name`
+
 Then you can send folder_name.zip using rsync in the terminal. For example, the command before will send folder_name.zip to the project space in Sockeye:
 rsync -a folder_name.zip <cwl>@dtn.sockeye.arc.ubc.ca:/arc/project/st-weberam2-1/
 To test the transfer first, use -an instead of -a option
