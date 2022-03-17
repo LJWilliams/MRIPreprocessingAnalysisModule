@@ -142,3 +142,18 @@ module load CVMFS_test
 module load r
 R
 ```
+
+### Installing Packages
+
+You will likely need to use packages. By default, you cannot just "install packages", because the location of the package downloads will be within the CVMFS module, where you do not have write privileges.
+
+So instead, we need to create our own local version of R within a directory you can write to. For example:
+
+```
+mkdir -p /arc/project/st-weberam2-1/Installations/R/.local/R/$EBVERSIONR/
+export R_LIBS=/arc/project/st-weberam2-1/Installations/R/.local/R/$EBVERSIONR/
+```
+
+Running this after you have R loaded in your environment, will create a directory to store and execute packages.
+
+**Make sure every time you want to run R and use those packages, you include the export R_LIBS command telling R where your packages live.**
