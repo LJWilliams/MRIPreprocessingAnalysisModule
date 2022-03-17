@@ -54,12 +54,12 @@ To test the transfer first, use -an instead of -a option
 
 A recommend storage I/O workflow pattern on Sockeye could be summarized as:
 
-* Copy/transfer input data to /arc/project/<alloc-code>
-* Login to sockeye and create/modify job script(s) in /scratch/<alloc-code>
-* Submit jobs that read input data from /arc/project/<alloc-code> and writes output to /scratch/<alloc-code> (or $TMDIR)
+* Copy/transfer input data to /arc/project/st-weberam2-1/
+* Login to sockeye and create/modify job script(s) in /scratch/st-weberam2-1/
+* Submit jobs that read input data from /arc/project/st-weberam2-1/ and writes output to /scratch/st-weberam2-1/ (or $TMDIR)
 * Job completes successfully
-* Copy/transfer job output from /scratch/<alloc-code> to /arc/projects/<alloc-code>
-* Interactively post-process and/or analyze results in /arc/project/<alloc-code>
+* Copy/transfer job output from /scratch/st-weberam2-1/ to /arc/project/st-weberam2-1/
+* Interactively post-process and/or analyze results in /arc/project/st-weberam2-1/
 
 ## Commonly Used Modules:
   
@@ -67,7 +67,7 @@ A recommend storage I/O workflow pattern on Sockeye could be summarized as:
   
 ```  
 module load CVMFS_test
-module load gcc/9.3.0
+module load gcc
 module load cuda/11.0
 module load fsl
 ```
@@ -76,7 +76,7 @@ module load fsl
 
 ```
 module load CVMFS_test
-module load gcc/9.3.0
+module load gcc
 module load ants
 ```
   
@@ -84,7 +84,7 @@ module load ants
   
 ```
 module load CVMFS_test
-module load gcc/9.3.0
+module load gcc
 module load afni
 ```
   
@@ -104,5 +104,41 @@ singularity build fmriprep/fmriprep-21.0.1.simg docker://poldracklab/fmriprep:21
 Run:
   
 ```
-singularity run --cleanenv fmriprep.simg path/to/data/dir path/to/output/dir participant --participant-label label
+singularity run --cleanenv fmriprep/fmriprep-21.0.1.simg path/to/data/dir path/to/output/dir participant --participant-label label
+```
+  
+Python Environments
+https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+You might have to run these the first time you use conda
+
+```
+module load gcc
+module load miniconda
+conda init bash
+conda config --set env_prompt '({name})'
+```
+
+Create a new environment
+
+`conda create --prefix /arc/project/st-weberam2-1>/Intallations/Conda/<new-env-name>`
+
+Install a package to it:
+
+`conda install -y numpy --prefix /arc/project/st-weberam2-1>/Installations/Conda/<new-env-name>`
+
+Activate:
+
+`conda activate /arc/project/st-weberam2-1>/Intallations/Conda/<new-env-name>`
+
+Deactivate:
+
+`conda deactivate`
+
+## R
+
+```
+module load CVMFS_test
+module load r
+R
 ```
